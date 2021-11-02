@@ -1,0 +1,1189 @@
+Resources:
+  GetMessagesHandlerServiceRole21FD5B23:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+        Version: "2012-10-17"
+      ManagedPolicyArns:
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/GetMessagesHandler/ServiceRole/Resource
+  GetMessagesHandlerServiceRoleDefaultPolicy80A31D10:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action:
+              - dynamodb:BatchGetItem
+              - dynamodb:GetRecords
+              - dynamodb:GetShardIterator
+              - dynamodb:Query
+              - dynamodb:GetItem
+              - dynamodb:Scan
+              - dynamodb:ConditionCheckItem
+            Effect: Allow
+            Resource:
+              - Fn::GetAtt:
+                  - OrdersTable315BB997
+                  - Arn
+              - Fn::Join:
+                  - ""
+                  - - Fn::GetAtt:
+                        - OrdersTable315BB997
+                        - Arn
+                    - /index/*
+        Version: "2012-10-17"
+      PolicyName: GetMessagesHandlerServiceRoleDefaultPolicy80A31D10
+      Roles:
+        - Ref: GetMessagesHandlerServiceRole21FD5B23
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/GetMessagesHandler/ServiceRole/DefaultPolicy/Resource
+  GetMessagesHandlerF61D6CE8:
+    Type: AWS::Lambda::Function
+    Properties:
+      Code:
+        S3Bucket: cdk-hnb659fds-assets-815673034358-us-east-2
+        S3Key: 22c25efb5a5e66da2a7ecc9364b6235cd9855a16b0383d1126885ad6f29fc2bc.zip
+      Role:
+        Fn::GetAtt:
+          - GetMessagesHandlerServiceRole21FD5B23
+          - Arn
+      Handler: get-messages.handler
+      Runtime: nodejs14.x
+    DependsOn:
+      - GetMessagesHandlerServiceRoleDefaultPolicy80A31D10
+      - GetMessagesHandlerServiceRole21FD5B23
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/GetMessagesHandler/Resource
+      aws:asset:path: /Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lambdas
+      aws:asset:property: Code
+  PutMessageHandlerServiceRole5CFA5E47:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+        Version: "2012-10-17"
+      ManagedPolicyArns:
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/PutMessageHandler/ServiceRole/Resource
+  PutMessageHandlerServiceRoleDefaultPolicyE6958A12:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action:
+              - dynamodb:BatchWriteItem
+              - dynamodb:PutItem
+              - dynamodb:UpdateItem
+              - dynamodb:DeleteItem
+            Effect: Allow
+            Resource:
+              - Fn::GetAtt:
+                  - OrdersTable315BB997
+                  - Arn
+              - Fn::Join:
+                  - ""
+                  - - Fn::GetAtt:
+                        - OrdersTable315BB997
+                        - Arn
+                    - /index/*
+          - Action:
+              - s3:GetObject*
+              - s3:GetBucket*
+              - s3:List*
+              - s3:DeleteObject*
+              - s3:PutObject
+              - s3:Abort*
+            Effect: Allow
+            Resource:
+              - Fn::GetAtt:
+                  - messagesbucket8156730343584CDA6B61
+                  - Arn
+              - Fn::Join:
+                  - ""
+                  - - Fn::GetAtt:
+                        - messagesbucket8156730343584CDA6B61
+                        - Arn
+                    - /*
+        Version: "2012-10-17"
+      PolicyName: PutMessageHandlerServiceRoleDefaultPolicyE6958A12
+      Roles:
+        - Ref: PutMessageHandlerServiceRole5CFA5E47
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/PutMessageHandler/ServiceRole/DefaultPolicy/Resource
+  PutMessageHandler14BECFD0:
+    Type: AWS::Lambda::Function
+    Properties:
+      Code:
+        S3Bucket: cdk-hnb659fds-assets-815673034358-us-east-2
+        S3Key: 22c25efb5a5e66da2a7ecc9364b6235cd9855a16b0383d1126885ad6f29fc2bc.zip
+      Role:
+        Fn::GetAtt:
+          - PutMessageHandlerServiceRole5CFA5E47
+          - Arn
+      Handler: put-message.handler
+      Runtime: nodejs14.x
+    DependsOn:
+      - PutMessageHandlerServiceRoleDefaultPolicyE6958A12
+      - PutMessageHandlerServiceRole5CFA5E47
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/PutMessageHandler/Resource
+      aws:asset:path: /Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lambdas
+      aws:asset:property: Code
+  GetAlertsHandlerServiceRole378BA15B:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+        Version: "2012-10-17"
+      ManagedPolicyArns:
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/GetAlertsHandler/ServiceRole/Resource
+  GetAlertsHandlerServiceRoleDefaultPolicyE7EA32AB:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action:
+              - dynamodb:BatchGetItem
+              - dynamodb:GetRecords
+              - dynamodb:GetShardIterator
+              - dynamodb:Query
+              - dynamodb:GetItem
+              - dynamodb:Scan
+              - dynamodb:ConditionCheckItem
+            Effect: Allow
+            Resource:
+              - Fn::GetAtt:
+                  - OrdersTable315BB997
+                  - Arn
+              - Fn::Join:
+                  - ""
+                  - - Fn::GetAtt:
+                        - OrdersTable315BB997
+                        - Arn
+                    - /index/*
+        Version: "2012-10-17"
+      PolicyName: GetAlertsHandlerServiceRoleDefaultPolicyE7EA32AB
+      Roles:
+        - Ref: GetAlertsHandlerServiceRole378BA15B
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/GetAlertsHandler/ServiceRole/DefaultPolicy/Resource
+  GetAlertsHandler9D633492:
+    Type: AWS::Lambda::Function
+    Properties:
+      Code:
+        S3Bucket: cdk-hnb659fds-assets-815673034358-us-east-2
+        S3Key: 22c25efb5a5e66da2a7ecc9364b6235cd9855a16b0383d1126885ad6f29fc2bc.zip
+      Role:
+        Fn::GetAtt:
+          - GetAlertsHandlerServiceRole378BA15B
+          - Arn
+      Handler: get-alerts.handler
+      Runtime: nodejs14.x
+    DependsOn:
+      - GetAlertsHandlerServiceRoleDefaultPolicyE7EA32AB
+      - GetAlertsHandlerServiceRole378BA15B
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/GetAlertsHandler/Resource
+      aws:asset:path: /Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lambdas
+      aws:asset:property: Code
+  PutAlertHandlerServiceRole4E4BCEA3:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+        Version: "2012-10-17"
+      ManagedPolicyArns:
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/PutAlertHandler/ServiceRole/Resource
+  PutAlertHandlerServiceRoleDefaultPolicy6E7F8218:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action:
+              - dynamodb:BatchWriteItem
+              - dynamodb:PutItem
+              - dynamodb:UpdateItem
+              - dynamodb:DeleteItem
+            Effect: Allow
+            Resource:
+              - Fn::GetAtt:
+                  - OrdersTable315BB997
+                  - Arn
+              - Fn::Join:
+                  - ""
+                  - - Fn::GetAtt:
+                        - OrdersTable315BB997
+                        - Arn
+                    - /index/*
+        Version: "2012-10-17"
+      PolicyName: PutAlertHandlerServiceRoleDefaultPolicy6E7F8218
+      Roles:
+        - Ref: PutAlertHandlerServiceRole4E4BCEA3
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/PutAlertHandler/ServiceRole/DefaultPolicy/Resource
+  PutAlertHandler0E57036C:
+    Type: AWS::Lambda::Function
+    Properties:
+      Code:
+        S3Bucket: cdk-hnb659fds-assets-815673034358-us-east-2
+        S3Key: 22c25efb5a5e66da2a7ecc9364b6235cd9855a16b0383d1126885ad6f29fc2bc.zip
+      Role:
+        Fn::GetAtt:
+          - PutAlertHandlerServiceRole4E4BCEA3
+          - Arn
+      Handler: put-alert.handler
+      Runtime: nodejs14.x
+    DependsOn:
+      - PutAlertHandlerServiceRoleDefaultPolicy6E7F8218
+      - PutAlertHandlerServiceRole4E4BCEA3
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/PutAlertHandler/Resource
+      aws:asset:path: /Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lambdas
+      aws:asset:property: Code
+  EnqueueEventHandlerServiceRole9009BDD9:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+        Version: "2012-10-17"
+      ManagedPolicyArns:
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/EnqueueEventHandler/ServiceRole/Resource
+  EnqueueEventHandlerServiceRoleDefaultPolicy4C21C258:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: events:PutEvents
+            Effect: Allow
+            Resource:
+              Fn::GetAtt:
+                - EventBus7B8748AA
+                - Arn
+        Version: "2012-10-17"
+      PolicyName: EnqueueEventHandlerServiceRoleDefaultPolicy4C21C258
+      Roles:
+        - Ref: EnqueueEventHandlerServiceRole9009BDD9
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/EnqueueEventHandler/ServiceRole/DefaultPolicy/Resource
+  EnqueueEventHandler76A2594C:
+    Type: AWS::Lambda::Function
+    Properties:
+      Code:
+        S3Bucket: cdk-hnb659fds-assets-815673034358-us-east-2
+        S3Key: 22c25efb5a5e66da2a7ecc9364b6235cd9855a16b0383d1126885ad6f29fc2bc.zip
+      Role:
+        Fn::GetAtt:
+          - EnqueueEventHandlerServiceRole9009BDD9
+          - Arn
+      Handler: enqueue-event.handler
+      Runtime: nodejs14.x
+    DependsOn:
+      - EnqueueEventHandlerServiceRoleDefaultPolicy4C21C258
+      - EnqueueEventHandlerServiceRole9009BDD9
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/EnqueueEventHandler/Resource
+      aws:asset:path: /Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lambdas
+      aws:asset:property: Code
+  OrdersTable315BB997:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+        - AttributeName: creation_date
+          KeyType: RANGE
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+        - AttributeName: creation_date
+          AttributeType: "N"
+        - AttributeName: type
+          AttributeType: S
+      BillingMode: PAY_PER_REQUEST
+      GlobalSecondaryIndexes:
+        - IndexName: message_type
+          KeySchema:
+            - AttributeName: type
+              KeyType: HASH
+            - AttributeName: creation_date
+              KeyType: RANGE
+          Projection:
+            ProjectionType: ALL
+      TableName: Events
+    UpdateReplacePolicy: Delete
+    DeletionPolicy: Delete
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/OrdersTable/Resource
+  apiC8550315:
+    Type: AWS::ApiGateway::RestApi
+    Properties:
+      Name: messages-alerts-api
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/api/Resource
+  apiCloudWatchRoleAC81D93E:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: apigateway.amazonaws.com
+        Version: "2012-10-17"
+      ManagedPolicyArns:
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/service-role/AmazonAPIGatewayPushToCloudWatchLogs
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/api/CloudWatchRole/Resource
+  apiAccount57E28B43:
+    Type: AWS::ApiGateway::Account
+    Properties:
+      CloudWatchRoleArn:
+        Fn::GetAtt:
+          - apiCloudWatchRoleAC81D93E
+          - Arn
+    DependsOn:
+      - apiC8550315
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/api/Account
+  apiDeployment149F1294b4dff72b4507c334a8ea6bd69e58930b:
+    Type: AWS::ApiGateway::Deployment
+    Properties:
+      RestApiId:
+        Ref: apiC8550315
+      Description: Automatically created by the RestApi construct
+    DependsOn:
+      - apialertsGET8416AF12
+      - apialertsOPTIONSEC09C78B
+      - apialertsPUTED41D15C
+      - apialertsEBDD0F2E
+      - apieventsOPTIONS26077F99
+      - apieventsPUT245AF0A8
+      - apieventsD4AD116F
+      - apimessagesGET80153A2D
+      - apimessagesOPTIONSC4135F40
+      - apimessagesPUTB34E365B
+      - apimessages69C8064A
+      - apiOPTIONS5A1027A6
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/api/Deployment/Resource
+  apiDeploymentStageprod896C8101:
+    Type: AWS::ApiGateway::Stage
+    Properties:
+      RestApiId:
+        Ref: apiC8550315
+      DeploymentId:
+        Ref: apiDeployment149F1294b4dff72b4507c334a8ea6bd69e58930b
+      StageName: prod
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/api/DeploymentStage.prod/Resource
+  apiOPTIONS5A1027A6:
+    Type: AWS::ApiGateway::Method
+    Properties:
+      HttpMethod: OPTIONS
+      ResourceId:
+        Fn::GetAtt:
+          - apiC8550315
+          - RootResourceId
+      RestApiId:
+        Ref: apiC8550315
+      AuthorizationType: NONE
+      Integration:
+        IntegrationResponses:
+          - ResponseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'"
+            StatusCode: "204"
+        RequestTemplates:
+          application/json: "{ statusCode: 200 }"
+        Type: MOCK
+      MethodResponses:
+        - ResponseParameters:
+            method.response.header.Access-Control-Allow-Headers: true
+            method.response.header.Access-Control-Allow-Origin: true
+            method.response.header.Access-Control-Allow-Methods: true
+          StatusCode: "204"
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/api/Default/OPTIONS/Resource
+  apimessages69C8064A:
+    Type: AWS::ApiGateway::Resource
+    Properties:
+      ParentId:
+        Fn::GetAtt:
+          - apiC8550315
+          - RootResourceId
+      PathPart: messages
+      RestApiId:
+        Ref: apiC8550315
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/api/Default/messages/Resource
+  apimessagesOPTIONSC4135F40:
+    Type: AWS::ApiGateway::Method
+    Properties:
+      HttpMethod: OPTIONS
+      ResourceId:
+        Ref: apimessages69C8064A
+      RestApiId:
+        Ref: apiC8550315
+      AuthorizationType: NONE
+      Integration:
+        IntegrationResponses:
+          - ResponseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'"
+            StatusCode: "204"
+        RequestTemplates:
+          application/json: "{ statusCode: 200 }"
+        Type: MOCK
+      MethodResponses:
+        - ResponseParameters:
+            method.response.header.Access-Control-Allow-Headers: true
+            method.response.header.Access-Control-Allow-Origin: true
+            method.response.header.Access-Control-Allow-Methods: true
+          StatusCode: "204"
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/api/Default/messages/OPTIONS/Resource
+  apimessagesGETApiPermissionMessagesAlertsApiStackapi5EACD5B5GETmessagesFA81674E:
+    Type: AWS::Lambda::Permission
+    Properties:
+      Action: lambda:InvokeFunction
+      FunctionName:
+        Fn::GetAtt:
+          - GetMessagesHandlerF61D6CE8
+          - Arn
+      Principal: apigateway.amazonaws.com
+      SourceArn:
+        Fn::Join:
+          - ""
+          - - "arn:"
+            - Ref: AWS::Partition
+            - ":execute-api:us-east-2:815673034358:"
+            - Ref: apiC8550315
+            - /
+            - Ref: apiDeploymentStageprod896C8101
+            - /GET/messages
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/api/Default/messages/GET/ApiPermission.MessagesAlertsApiStackapi5EACD5B5.GET..messages
+  apimessagesGETApiPermissionTestMessagesAlertsApiStackapi5EACD5B5GETmessages1D306641:
+    Type: AWS::Lambda::Permission
+    Properties:
+      Action: lambda:InvokeFunction
+      FunctionName:
+        Fn::GetAtt:
+          - GetMessagesHandlerF61D6CE8
+          - Arn
+      Principal: apigateway.amazonaws.com
+      SourceArn:
+        Fn::Join:
+          - ""
+          - - "arn:"
+            - Ref: AWS::Partition
+            - ":execute-api:us-east-2:815673034358:"
+            - Ref: apiC8550315
+            - /test-invoke-stage/GET/messages
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/api/Default/messages/GET/ApiPermission.Test.MessagesAlertsApiStackapi5EACD5B5.GET..messages
+  apimessagesGET80153A2D:
+    Type: AWS::ApiGateway::Method
+    Properties:
+      HttpMethod: GET
+      ResourceId:
+        Ref: apimessages69C8064A
+      RestApiId:
+        Ref: apiC8550315
+      AuthorizationType: NONE
+      Integration:
+        IntegrationHttpMethod: POST
+        Type: AWS_PROXY
+        Uri:
+          Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :apigateway:us-east-2:lambda:path/2015-03-31/functions/
+              - Fn::GetAtt:
+                  - GetMessagesHandlerF61D6CE8
+                  - Arn
+              - /invocations
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/api/Default/messages/GET/Resource
+  apimessagesPUTApiPermissionMessagesAlertsApiStackapi5EACD5B5PUTmessages48F07860:
+    Type: AWS::Lambda::Permission
+    Properties:
+      Action: lambda:InvokeFunction
+      FunctionName:
+        Fn::GetAtt:
+          - PutMessageHandler14BECFD0
+          - Arn
+      Principal: apigateway.amazonaws.com
+      SourceArn:
+        Fn::Join:
+          - ""
+          - - "arn:"
+            - Ref: AWS::Partition
+            - ":execute-api:us-east-2:815673034358:"
+            - Ref: apiC8550315
+            - /
+            - Ref: apiDeploymentStageprod896C8101
+            - /PUT/messages
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/api/Default/messages/PUT/ApiPermission.MessagesAlertsApiStackapi5EACD5B5.PUT..messages
+  apimessagesPUTApiPermissionTestMessagesAlertsApiStackapi5EACD5B5PUTmessagesD44D6B2A:
+    Type: AWS::Lambda::Permission
+    Properties:
+      Action: lambda:InvokeFunction
+      FunctionName:
+        Fn::GetAtt:
+          - PutMessageHandler14BECFD0
+          - Arn
+      Principal: apigateway.amazonaws.com
+      SourceArn:
+        Fn::Join:
+          - ""
+          - - "arn:"
+            - Ref: AWS::Partition
+            - ":execute-api:us-east-2:815673034358:"
+            - Ref: apiC8550315
+            - /test-invoke-stage/PUT/messages
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/api/Default/messages/PUT/ApiPermission.Test.MessagesAlertsApiStackapi5EACD5B5.PUT..messages
+  apimessagesPUTB34E365B:
+    Type: AWS::ApiGateway::Method
+    Properties:
+      HttpMethod: PUT
+      ResourceId:
+        Ref: apimessages69C8064A
+      RestApiId:
+        Ref: apiC8550315
+      AuthorizationType: NONE
+      Integration:
+        IntegrationHttpMethod: POST
+        Type: AWS_PROXY
+        Uri:
+          Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :apigateway:us-east-2:lambda:path/2015-03-31/functions/
+              - Fn::GetAtt:
+                  - PutMessageHandler14BECFD0
+                  - Arn
+              - /invocations
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/api/Default/messages/PUT/Resource
+  apialertsEBDD0F2E:
+    Type: AWS::ApiGateway::Resource
+    Properties:
+      ParentId:
+        Fn::GetAtt:
+          - apiC8550315
+          - RootResourceId
+      PathPart: alerts
+      RestApiId:
+        Ref: apiC8550315
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/api/Default/alerts/Resource
+  apialertsOPTIONSEC09C78B:
+    Type: AWS::ApiGateway::Method
+    Properties:
+      HttpMethod: OPTIONS
+      ResourceId:
+        Ref: apialertsEBDD0F2E
+      RestApiId:
+        Ref: apiC8550315
+      AuthorizationType: NONE
+      Integration:
+        IntegrationResponses:
+          - ResponseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'"
+            StatusCode: "204"
+        RequestTemplates:
+          application/json: "{ statusCode: 200 }"
+        Type: MOCK
+      MethodResponses:
+        - ResponseParameters:
+            method.response.header.Access-Control-Allow-Headers: true
+            method.response.header.Access-Control-Allow-Origin: true
+            method.response.header.Access-Control-Allow-Methods: true
+          StatusCode: "204"
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/api/Default/alerts/OPTIONS/Resource
+  apialertsGETApiPermissionMessagesAlertsApiStackapi5EACD5B5GETalerts9A77903B:
+    Type: AWS::Lambda::Permission
+    Properties:
+      Action: lambda:InvokeFunction
+      FunctionName:
+        Fn::GetAtt:
+          - GetAlertsHandler9D633492
+          - Arn
+      Principal: apigateway.amazonaws.com
+      SourceArn:
+        Fn::Join:
+          - ""
+          - - "arn:"
+            - Ref: AWS::Partition
+            - ":execute-api:us-east-2:815673034358:"
+            - Ref: apiC8550315
+            - /
+            - Ref: apiDeploymentStageprod896C8101
+            - /GET/alerts
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/api/Default/alerts/GET/ApiPermission.MessagesAlertsApiStackapi5EACD5B5.GET..alerts
+  apialertsGETApiPermissionTestMessagesAlertsApiStackapi5EACD5B5GETalerts487EA35B:
+    Type: AWS::Lambda::Permission
+    Properties:
+      Action: lambda:InvokeFunction
+      FunctionName:
+        Fn::GetAtt:
+          - GetAlertsHandler9D633492
+          - Arn
+      Principal: apigateway.amazonaws.com
+      SourceArn:
+        Fn::Join:
+          - ""
+          - - "arn:"
+            - Ref: AWS::Partition
+            - ":execute-api:us-east-2:815673034358:"
+            - Ref: apiC8550315
+            - /test-invoke-stage/GET/alerts
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/api/Default/alerts/GET/ApiPermission.Test.MessagesAlertsApiStackapi5EACD5B5.GET..alerts
+  apialertsGET8416AF12:
+    Type: AWS::ApiGateway::Method
+    Properties:
+      HttpMethod: GET
+      ResourceId:
+        Ref: apialertsEBDD0F2E
+      RestApiId:
+        Ref: apiC8550315
+      AuthorizationType: NONE
+      Integration:
+        IntegrationHttpMethod: POST
+        Type: AWS_PROXY
+        Uri:
+          Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :apigateway:us-east-2:lambda:path/2015-03-31/functions/
+              - Fn::GetAtt:
+                  - GetAlertsHandler9D633492
+                  - Arn
+              - /invocations
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/api/Default/alerts/GET/Resource
+  apialertsPUTApiPermissionMessagesAlertsApiStackapi5EACD5B5PUTalerts041D8FFA:
+    Type: AWS::Lambda::Permission
+    Properties:
+      Action: lambda:InvokeFunction
+      FunctionName:
+        Fn::GetAtt:
+          - PutAlertHandler0E57036C
+          - Arn
+      Principal: apigateway.amazonaws.com
+      SourceArn:
+        Fn::Join:
+          - ""
+          - - "arn:"
+            - Ref: AWS::Partition
+            - ":execute-api:us-east-2:815673034358:"
+            - Ref: apiC8550315
+            - /
+            - Ref: apiDeploymentStageprod896C8101
+            - /PUT/alerts
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/api/Default/alerts/PUT/ApiPermission.MessagesAlertsApiStackapi5EACD5B5.PUT..alerts
+  apialertsPUTApiPermissionTestMessagesAlertsApiStackapi5EACD5B5PUTalertsF4D3FFB9:
+    Type: AWS::Lambda::Permission
+    Properties:
+      Action: lambda:InvokeFunction
+      FunctionName:
+        Fn::GetAtt:
+          - PutAlertHandler0E57036C
+          - Arn
+      Principal: apigateway.amazonaws.com
+      SourceArn:
+        Fn::Join:
+          - ""
+          - - "arn:"
+            - Ref: AWS::Partition
+            - ":execute-api:us-east-2:815673034358:"
+            - Ref: apiC8550315
+            - /test-invoke-stage/PUT/alerts
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/api/Default/alerts/PUT/ApiPermission.Test.MessagesAlertsApiStackapi5EACD5B5.PUT..alerts
+  apialertsPUTED41D15C:
+    Type: AWS::ApiGateway::Method
+    Properties:
+      HttpMethod: PUT
+      ResourceId:
+        Ref: apialertsEBDD0F2E
+      RestApiId:
+        Ref: apiC8550315
+      AuthorizationType: NONE
+      Integration:
+        IntegrationHttpMethod: POST
+        Type: AWS_PROXY
+        Uri:
+          Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :apigateway:us-east-2:lambda:path/2015-03-31/functions/
+              - Fn::GetAtt:
+                  - PutAlertHandler0E57036C
+                  - Arn
+              - /invocations
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/api/Default/alerts/PUT/Resource
+  apieventsD4AD116F:
+    Type: AWS::ApiGateway::Resource
+    Properties:
+      ParentId:
+        Fn::GetAtt:
+          - apiC8550315
+          - RootResourceId
+      PathPart: events
+      RestApiId:
+        Ref: apiC8550315
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/api/Default/events/Resource
+  apieventsOPTIONS26077F99:
+    Type: AWS::ApiGateway::Method
+    Properties:
+      HttpMethod: OPTIONS
+      ResourceId:
+        Ref: apieventsD4AD116F
+      RestApiId:
+        Ref: apiC8550315
+      AuthorizationType: NONE
+      Integration:
+        IntegrationResponses:
+          - ResponseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'"
+            StatusCode: "204"
+        RequestTemplates:
+          application/json: "{ statusCode: 200 }"
+        Type: MOCK
+      MethodResponses:
+        - ResponseParameters:
+            method.response.header.Access-Control-Allow-Headers: true
+            method.response.header.Access-Control-Allow-Origin: true
+            method.response.header.Access-Control-Allow-Methods: true
+          StatusCode: "204"
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/api/Default/events/OPTIONS/Resource
+  apieventsPUTApiPermissionMessagesAlertsApiStackapi5EACD5B5PUTeventsFEBB2B9C:
+    Type: AWS::Lambda::Permission
+    Properties:
+      Action: lambda:InvokeFunction
+      FunctionName:
+        Fn::GetAtt:
+          - EnqueueEventHandler76A2594C
+          - Arn
+      Principal: apigateway.amazonaws.com
+      SourceArn:
+        Fn::Join:
+          - ""
+          - - "arn:"
+            - Ref: AWS::Partition
+            - ":execute-api:us-east-2:815673034358:"
+            - Ref: apiC8550315
+            - /
+            - Ref: apiDeploymentStageprod896C8101
+            - /PUT/events
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/api/Default/events/PUT/ApiPermission.MessagesAlertsApiStackapi5EACD5B5.PUT..events
+  apieventsPUTApiPermissionTestMessagesAlertsApiStackapi5EACD5B5PUTevents83C9E259:
+    Type: AWS::Lambda::Permission
+    Properties:
+      Action: lambda:InvokeFunction
+      FunctionName:
+        Fn::GetAtt:
+          - EnqueueEventHandler76A2594C
+          - Arn
+      Principal: apigateway.amazonaws.com
+      SourceArn:
+        Fn::Join:
+          - ""
+          - - "arn:"
+            - Ref: AWS::Partition
+            - ":execute-api:us-east-2:815673034358:"
+            - Ref: apiC8550315
+            - /test-invoke-stage/PUT/events
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/api/Default/events/PUT/ApiPermission.Test.MessagesAlertsApiStackapi5EACD5B5.PUT..events
+  apieventsPUT245AF0A8:
+    Type: AWS::ApiGateway::Method
+    Properties:
+      HttpMethod: PUT
+      ResourceId:
+        Ref: apieventsD4AD116F
+      RestApiId:
+        Ref: apiC8550315
+      AuthorizationType: NONE
+      Integration:
+        IntegrationHttpMethod: POST
+        Type: AWS_PROXY
+        Uri:
+          Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :apigateway:us-east-2:lambda:path/2015-03-31/functions/
+              - Fn::GetAtt:
+                  - EnqueueEventHandler76A2594C
+                  - Arn
+              - /invocations
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/api/Default/events/PUT/Resource
+  EventBus7B8748AA:
+    Type: AWS::Events::EventBus
+    Properties:
+      Name: messages-alerts-event-bus
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/EventBus/Resource
+  MessageEventsRule14ED41A2:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Rule for message events
+      EventBusName:
+        Ref: EventBus7B8748AA
+      EventPattern:
+        detail-type:
+          - message
+      Name: message-events-rule
+      State: ENABLED
+      Targets:
+        - Arn:
+            Fn::GetAtt:
+              - PutMessageHandler14BECFD0
+              - Arn
+          Id: Target0
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/MessageEventsRule/Resource
+  MessageEventsRuleAllowEventRuleMessagesAlertsApiStackPutMessageHandler647CC57310C9BAEA:
+    Type: AWS::Lambda::Permission
+    Properties:
+      Action: lambda:InvokeFunction
+      FunctionName:
+        Fn::GetAtt:
+          - PutMessageHandler14BECFD0
+          - Arn
+      Principal: events.amazonaws.com
+      SourceArn:
+        Fn::GetAtt:
+          - MessageEventsRule14ED41A2
+          - Arn
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/MessageEventsRule/AllowEventRuleMessagesAlertsApiStackPutMessageHandler647CC573
+  AlertEventsRule8E357077:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Rule for alert events
+      EventBusName:
+        Ref: EventBus7B8748AA
+      EventPattern:
+        detail-type:
+          - alert
+      Name: alert-events-rule
+      State: ENABLED
+      Targets:
+        - Arn:
+            Fn::GetAtt:
+              - PutAlertHandler0E57036C
+              - Arn
+          Id: Target0
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/AlertEventsRule/Resource
+  AlertEventsRuleAllowEventRuleMessagesAlertsApiStackPutAlertHandler5470F0A9B0AB97DE:
+    Type: AWS::Lambda::Permission
+    Properties:
+      Action: lambda:InvokeFunction
+      FunctionName:
+        Fn::GetAtt:
+          - PutAlertHandler0E57036C
+          - Arn
+      Principal: events.amazonaws.com
+      SourceArn:
+        Fn::GetAtt:
+          - AlertEventsRule8E357077
+          - Arn
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/AlertEventsRule/AllowEventRuleMessagesAlertsApiStackPutAlertHandler5470F0A9
+  messagesbucket8156730343584CDA6B61:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: messages-bucket-815673034358
+    UpdateReplacePolicy: Retain
+    DeletionPolicy: Retain
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/messages-bucket-815673034358/Resource
+  swaggerbucket81567303435898B274DB:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: swagger-bucket-815673034358
+      WebsiteConfiguration:
+        IndexDocument: index.html
+    UpdateReplacePolicy: Delete
+    DeletionPolicy: Delete
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/swagger-bucket-815673034358/Resource
+  swaggerbucket815673034358PolicyD828247F:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket:
+        Ref: swaggerbucket81567303435898B274DB
+      PolicyDocument:
+        Statement:
+          - Action: s3:GetObject
+            Effect: Allow
+            Principal:
+              AWS: "*"
+            Resource:
+              Fn::Join:
+                - ""
+                - - Fn::GetAtt:
+                      - swaggerbucket81567303435898B274DB
+                      - Arn
+                  - /*
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/swagger-bucket-815673034358/Policy/Resource
+  swaggerDistribution88B03F7C:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        DefaultCacheBehavior:
+          CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6
+          Compress: true
+          TargetOriginId: MessagesAlertsApiStackswaggerDistributionOrigin14681FC79
+          ViewerProtocolPolicy: allow-all
+        Enabled: true
+        HttpVersion: http2
+        IPV6Enabled: true
+        Origins:
+          - CustomOriginConfig:
+              OriginProtocolPolicy: http-only
+              OriginSSLProtocols:
+                - TLSv1.2
+            DomainName:
+              Fn::Select:
+                - 2
+                - Fn::Split:
+                    - /
+                    - Fn::GetAtt:
+                        - swaggerbucket81567303435898B274DB
+                        - WebsiteURL
+            Id: MessagesAlertsApiStackswaggerDistributionOrigin14681FC79
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/swaggerDistribution/Resource
+  deploySwaggerWebsiteAwsCliLayer1B362D91:
+    Type: AWS::Lambda::LayerVersion
+    Properties:
+      Content:
+        S3Bucket: cdk-hnb659fds-assets-815673034358-us-east-2
+        S3Key: e9882ab123687399f934da0d45effe675ecc8ce13b40cb946f3e1d6141fe8d68.zip
+      Description: /opt/awscli/aws
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/deploySwaggerWebsite/AwsCliLayer/Resource
+      aws:asset:path: /Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/lambda-layer-awscli/lib/layer.zip
+      aws:asset:property: Content
+  deploySwaggerWebsiteCustomResourceDE96AA2B:
+    Type: Custom::CDKBucketDeployment
+    Properties:
+      ServiceToken:
+        Fn::GetAtt:
+          - CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C81C01536
+          - Arn
+      SourceBucketNames:
+        - cdk-hnb659fds-assets-815673034358-us-east-2
+      SourceObjectKeys:
+        - 21ec46727d035e13f218de73e496ea0da028ea921d23ac092c48363608a725dc.zip
+      DestinationBucketName:
+        Ref: swaggerbucket81567303435898B274DB
+      Prune: true
+    UpdateReplacePolicy: Delete
+    DeletionPolicy: Delete
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/deploySwaggerWebsite/CustomResource/Default
+  CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRole89A01265:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+        Version: "2012-10-17"
+      ManagedPolicyArns:
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/Resource
+  CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRoleDefaultPolicy88902FDF:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action:
+              - s3:GetObject*
+              - s3:GetBucket*
+              - s3:List*
+            Effect: Allow
+            Resource:
+              - Fn::Join:
+                  - ""
+                  - - "arn:"
+                    - Ref: AWS::Partition
+                    - :s3:::cdk-hnb659fds-assets-815673034358-us-east-2
+              - Fn::Join:
+                  - ""
+                  - - "arn:"
+                    - Ref: AWS::Partition
+                    - :s3:::cdk-hnb659fds-assets-815673034358-us-east-2/*
+          - Action:
+              - s3:GetObject*
+              - s3:GetBucket*
+              - s3:List*
+              - s3:DeleteObject*
+              - s3:PutObject
+              - s3:Abort*
+            Effect: Allow
+            Resource:
+              - Fn::GetAtt:
+                  - swaggerbucket81567303435898B274DB
+                  - Arn
+              - Fn::Join:
+                  - ""
+                  - - Fn::GetAtt:
+                        - swaggerbucket81567303435898B274DB
+                        - Arn
+                    - /*
+        Version: "2012-10-17"
+      PolicyName: CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRoleDefaultPolicy88902FDF
+      Roles:
+        - Ref: CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRole89A01265
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/DefaultPolicy/Resource
+  CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C81C01536:
+    Type: AWS::Lambda::Function
+    Properties:
+      Code:
+        S3Bucket: cdk-hnb659fds-assets-815673034358-us-east-2
+        S3Key: a3058ccb468d757ebb89df5363a1c20f5307c6911136f29d00e1a68c9b2aa7e8.zip
+      Role:
+        Fn::GetAtt:
+          - CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRole89A01265
+          - Arn
+      Handler: index.handler
+      Layers:
+        - Ref: deploySwaggerWebsiteAwsCliLayer1B362D91
+      Runtime: python3.7
+      Timeout: 900
+    DependsOn:
+      - CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRoleDefaultPolicy88902FDF
+      - CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRole89A01265
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/Resource
+      aws:asset:path: /Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-s3-deployment/lib/lambda
+      aws:asset:property: Code
+  CDKMetadata:
+    Type: AWS::CDK::Metadata
+    Properties:
+      Analytics: v2:deflate64:H4sIAAAAAAAA/22Ry26DMBBFvyV74wSl6rqEtKtWjUjVvbGnqRNjI8ZOhCz+vTaGhEVXc+ahed2c5tsN3axe2A0zLi5rz00H1B8t4xdSIIINeJL6REqj0XaOW1IBGtdxIOWP/nS2dZaUDq1plomZBxJbe8WaWjDq35zmVhodS5Z8gK6RiJP3znrovqEb/WOYrsCae/1AJGuor4xKk6I9GCV5P3YaaSC4zTyLByAd7yACWmX6BrSlO8cvYPf3QKymPkV3DIEkjO0mSuYxZekPRPSaNUbU1H+xOm01Qji+lSdm4cb6sDCgLVo5fWfGgnPjtCWPbWJ04UUBxpYJ5seOe36A/TUiJif6XwK4hkZI/Wu0O4cxe+fKTX90cWGujBM/nQlf8nsZFJe1m0Va+sNAkqaZimJlQWWuJC1uWCo56jcQbQTQM66v+RPNn2m+OqOUWReulQ3QKtk/bLzF6oMCAAA=
+    Metadata:
+      aws:cdk:path: MessagesAlertsApiStack/CDKMetadata/Default
+Outputs:
+  apiEndpoint9349E63C:
+    Value:
+      Fn::Join:
+        - ""
+        - - https://
+          - Ref: apiC8550315
+          - .execute-api.us-east-2.
+          - Ref: AWS::URLSuffix
+          - /
+          - Ref: apiDeploymentStageprod896C8101
+          - /
+Parameters:
+  BootstrapVersion:
+    Type: AWS::SSM::Parameter::Value<String>
+    Default: /cdk-bootstrap/hnb659fds/version
+    Description: Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]
+Rules:
+  CheckBootstrapVersion:
+    Assertions:
+      - Assert:
+          Fn::Not:
+            - Fn::Contains:
+                - - "1"
+                  - "2"
+                  - "3"
+                  - "4"
+                  - "5"
+                - Ref: BootstrapVersion
+        AssertDescription: CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.
+

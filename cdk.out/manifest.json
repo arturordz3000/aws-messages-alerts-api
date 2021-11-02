@@ -1,0 +1,1789 @@
+{
+  "version": "14.0.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "MessagesAlertsApiStack.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "MessagesAlertsApiStack.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "MessagesAlertsApiStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://815673034358/us-east-2",
+      "properties": {
+        "templateFile": "MessagesAlertsApiStack.template.json",
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::815673034358:role/cdk-hnb659fds-deploy-role-815673034358-us-east-2",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::815673034358:role/cdk-hnb659fds-cfn-exec-role-815673034358-us-east-2",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-815673034358-us-east-2/9057fcb1f7ebd8fd74653add5dfca7548909d59ddc49356156b064f10e0cd7a3.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "MessagesAlertsApiStack.assets"
+        ]
+      },
+      "dependencies": [
+        "MessagesAlertsApiStack.assets"
+      ],
+      "metadata": {
+        "/MessagesAlertsApiStack/GetMessagesHandler/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GetMessagesHandlerServiceRole21FD5B23",
+            "trace": [
+              "new Role (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-iam/lib/role.ts:199:18)",
+              "new Function (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-lambda/lib/function.ts:318:31)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:17:31)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/GetMessagesHandler/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GetMessagesHandlerServiceRoleDefaultPolicy80A31D10",
+            "trace": [
+              "new Policy (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-iam/lib/policy.ts:89:22)",
+              "Role.addToPrincipalPolicy (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-iam/lib/role.ts:236:28)",
+              "Function.addToPrincipal (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-dynamodb/node_modules/@aws-cdk/aws-iam/lib/grant.ts:92:61)",
+              "Table.combinedGrant (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-dynamodb/lib/table.ts:525:29)",
+              "Table.grantReadData (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-dynamodb/lib/table.ts:321:17)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:62:11)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/GetMessagesHandler/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GetMessagesHandlerF61D6CE8",
+            "trace": [
+              "new Function (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-lambda/lib/function.ts:388:35)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:17:31)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/PutMessageHandler/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PutMessageHandlerServiceRole5CFA5E47",
+            "trace": [
+              "new Role (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-iam/lib/role.ts:199:18)",
+              "new Function (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-lambda/lib/function.ts:318:31)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:23:30)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/PutMessageHandler/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PutMessageHandlerServiceRoleDefaultPolicyE6958A12",
+            "trace": [
+              "new Policy (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-iam/lib/policy.ts:89:22)",
+              "Role.addToPrincipalPolicy (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-iam/lib/role.ts:236:28)",
+              "Function.addToPrincipal (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-dynamodb/node_modules/@aws-cdk/aws-iam/lib/grant.ts:92:61)",
+              "Table.combinedGrant (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-dynamodb/lib/table.ts:525:29)",
+              "Table.grantWriteData (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-dynamodb/lib/table.ts:345:17)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:63:11)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/PutMessageHandler/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PutMessageHandler14BECFD0",
+            "trace": [
+              "new Function (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-lambda/lib/function.ts:388:35)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:23:30)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/GetAlertsHandler/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GetAlertsHandlerServiceRole378BA15B",
+            "trace": [
+              "new Role (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-iam/lib/role.ts:199:18)",
+              "new Function (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-lambda/lib/function.ts:318:31)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:29:29)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/GetAlertsHandler/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GetAlertsHandlerServiceRoleDefaultPolicyE7EA32AB",
+            "trace": [
+              "new Policy (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-iam/lib/policy.ts:89:22)",
+              "Role.addToPrincipalPolicy (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-iam/lib/role.ts:236:28)",
+              "Function.addToPrincipal (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-dynamodb/node_modules/@aws-cdk/aws-iam/lib/grant.ts:92:61)",
+              "Table.combinedGrant (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-dynamodb/lib/table.ts:525:29)",
+              "Table.grantReadData (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-dynamodb/lib/table.ts:321:17)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:64:11)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/GetAlertsHandler/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GetAlertsHandler9D633492",
+            "trace": [
+              "new Function (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-lambda/lib/function.ts:388:35)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:29:29)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/PutAlertHandler/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PutAlertHandlerServiceRole4E4BCEA3",
+            "trace": [
+              "new Role (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-iam/lib/role.ts:199:18)",
+              "new Function (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-lambda/lib/function.ts:318:31)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:35:28)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/PutAlertHandler/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PutAlertHandlerServiceRoleDefaultPolicy6E7F8218",
+            "trace": [
+              "new Policy (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-iam/lib/policy.ts:89:22)",
+              "Role.addToPrincipalPolicy (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-iam/lib/role.ts:236:28)",
+              "Function.addToPrincipal (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-dynamodb/node_modules/@aws-cdk/aws-iam/lib/grant.ts:92:61)",
+              "Table.combinedGrant (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-dynamodb/lib/table.ts:525:29)",
+              "Table.grantWriteData (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-dynamodb/lib/table.ts:345:17)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:65:11)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/PutAlertHandler/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PutAlertHandler0E57036C",
+            "trace": [
+              "new Function (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-lambda/lib/function.ts:388:35)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:35:28)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/EnqueueEventHandler/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EnqueueEventHandlerServiceRole9009BDD9",
+            "trace": [
+              "new Role (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-iam/lib/role.ts:199:18)",
+              "new Function (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-lambda/lib/function.ts:318:31)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:41:32)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/EnqueueEventHandler/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EnqueueEventHandlerServiceRoleDefaultPolicy4C21C258",
+            "trace": [
+              "new Policy (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-iam/lib/policy.ts:89:22)",
+              "Role.addToPrincipalPolicy (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-iam/lib/role.ts:236:28)",
+              "Function.addToPrincipal (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-iam/lib/grant.ts:92:61)",
+              "EventBus.grantPutEventsTo (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-events/lib/event-bus.ts:85:22)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:115:9)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/EnqueueEventHandler/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EnqueueEventHandler76A2594C",
+            "trace": [
+              "new Function (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-lambda/lib/function.ts:388:35)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:41:32)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/OrdersTable": [
+          {
+            "type": "aws:cdk:hasPhysicalName",
+            "data": {
+              "Ref": "OrdersTable315BB997"
+            },
+            "trace": [
+              "ConstructNode.addMetadata (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-dynamodb/node_modules/@aws-cdk/core/lib/construct-compat.ts:252:92)",
+              "new Table (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-dynamodb/lib/table.ts:710:38)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:47:19)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/OrdersTable/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "OrdersTable315BB997",
+            "trace": [
+              "new Table (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-dynamodb/lib/table.ts:681:18)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:47:19)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/api/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apiC8550315",
+            "trace": [
+              "new RestApi (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:463:22)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:67:17)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/api/CloudWatchRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apiCloudWatchRoleAC81D93E",
+            "trace": [
+              "new Role (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-iam/lib/role.ts:199:18)",
+              "RestApi._configureCloudWatchRole (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:289:18)",
+              "new RestApi (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:481:12)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:67:17)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/api/Account": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apiAccount57E28B43",
+            "trace": [
+              "RestApi._configureCloudWatchRole (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:294:22)",
+              "new RestApi (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:481:12)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:67:17)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/api/Deployment/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apiDeployment149F1294b4dff72b4507c334a8ea6bd69e58930b",
+            "trace": [
+              "new Deployment (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/deployment.ts:34:21)",
+              "RestApi._configureDeployment (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:318:32)",
+              "new RestApi (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:484:10)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:67:17)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/api/DeploymentStage.prod/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apiDeploymentStageprod896C8101",
+            "trace": [
+              "new Stage (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/stage.ts:136:22)",
+              "RestApi._configureDeployment (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:328:30)",
+              "new RestApi (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:484:10)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:67:17)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/api/Endpoint": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apiEndpoint9349E63C",
+            "trace": [
+              "RestApi._configureDeployment (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:333:7)",
+              "new RestApi (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:484:10)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:67:17)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/api/Default/OPTIONS/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apiOPTIONS5A1027A6",
+            "trace": [
+              "new Method (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/method.ts:116:22)",
+              "RootResource.addMethod (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:95:12)",
+              "RootResource.addCorsPreflight (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:201:17)",
+              "new RootResource (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:612:12)",
+              "new RestApi (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:489:17)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:67:17)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/api/Default/messages/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apimessages69C8064A",
+            "trace": [
+              "new Resource (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:342:22)",
+              "RootResource.addResource (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:91:12)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:74:31)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/api/Default/messages/OPTIONS/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apimessagesOPTIONSC4135F40",
+            "trace": [
+              "new Method (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/method.ts:116:22)",
+              "Resource.addMethod (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:95:12)",
+              "Resource.addCorsPreflight (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:201:17)",
+              "new Resource (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:368:12)",
+              "RootResource.addResource (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:91:12)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:74:31)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/api/Default/messages/GET/ApiPermission.MessagesAlertsApiStackapi5EACD5B5.GET..messages": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apimessagesGETApiPermissionMessagesAlertsApiStackapi5EACD5B5GETmessagesFA81674E",
+            "trace": [
+              "Function.addPermission (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-lambda/lib/function-base.ts:130:5)",
+              "LambdaIntegration.bind (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/integrations/lambda.ts:41:18)",
+              "new Method (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/method.ts:98:36)",
+              "Resource.addMethod (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:95:12)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:77:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/api/Default/messages/GET/ApiPermission.Test.MessagesAlertsApiStackapi5EACD5B5.GET..messages": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apimessagesGETApiPermissionTestMessagesAlertsApiStackapi5EACD5B5GETmessages1D306641",
+            "trace": [
+              "Function.addPermission (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-lambda/lib/function-base.ts:130:5)",
+              "LambdaIntegration.bind (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/integrations/lambda.ts:49:20)",
+              "new Method (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/method.ts:98:36)",
+              "Resource.addMethod (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:95:12)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:77:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/api/Default/messages/GET/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apimessagesGET80153A2D",
+            "trace": [
+              "new Method (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/method.ts:116:22)",
+              "Resource.addMethod (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:95:12)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:77:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/api/Default/messages/PUT/ApiPermission.MessagesAlertsApiStackapi5EACD5B5.PUT..messages": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apimessagesPUTApiPermissionMessagesAlertsApiStackapi5EACD5B5PUTmessages48F07860",
+            "trace": [
+              "Function.addPermission (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-lambda/lib/function-base.ts:130:5)",
+              "LambdaIntegration.bind (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/integrations/lambda.ts:41:18)",
+              "new Method (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/method.ts:98:36)",
+              "Resource.addMethod (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:95:12)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:78:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/api/Default/messages/PUT/ApiPermission.Test.MessagesAlertsApiStackapi5EACD5B5.PUT..messages": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apimessagesPUTApiPermissionTestMessagesAlertsApiStackapi5EACD5B5PUTmessagesD44D6B2A",
+            "trace": [
+              "Function.addPermission (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-lambda/lib/function-base.ts:130:5)",
+              "LambdaIntegration.bind (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/integrations/lambda.ts:49:20)",
+              "new Method (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/method.ts:98:36)",
+              "Resource.addMethod (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:95:12)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:78:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/api/Default/messages/PUT/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apimessagesPUTB34E365B",
+            "trace": [
+              "new Method (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/method.ts:116:22)",
+              "Resource.addMethod (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:95:12)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:78:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/api/Default/alerts/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apialertsEBDD0F2E",
+            "trace": [
+              "new Resource (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:342:22)",
+              "RootResource.addResource (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:91:12)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:80:29)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/api/Default/alerts/OPTIONS/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apialertsOPTIONSEC09C78B",
+            "trace": [
+              "new Method (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/method.ts:116:22)",
+              "Resource.addMethod (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:95:12)",
+              "Resource.addCorsPreflight (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:201:17)",
+              "new Resource (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:368:12)",
+              "RootResource.addResource (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:91:12)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:80:29)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/api/Default/alerts/GET/ApiPermission.MessagesAlertsApiStackapi5EACD5B5.GET..alerts": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apialertsGETApiPermissionMessagesAlertsApiStackapi5EACD5B5GETalerts9A77903B",
+            "trace": [
+              "Function.addPermission (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-lambda/lib/function-base.ts:130:5)",
+              "LambdaIntegration.bind (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/integrations/lambda.ts:41:18)",
+              "new Method (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/method.ts:98:36)",
+              "Resource.addMethod (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:95:12)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:83:12)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/api/Default/alerts/GET/ApiPermission.Test.MessagesAlertsApiStackapi5EACD5B5.GET..alerts": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apialertsGETApiPermissionTestMessagesAlertsApiStackapi5EACD5B5GETalerts487EA35B",
+            "trace": [
+              "Function.addPermission (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-lambda/lib/function-base.ts:130:5)",
+              "LambdaIntegration.bind (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/integrations/lambda.ts:49:20)",
+              "new Method (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/method.ts:98:36)",
+              "Resource.addMethod (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:95:12)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:83:12)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/api/Default/alerts/GET/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apialertsGET8416AF12",
+            "trace": [
+              "new Method (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/method.ts:116:22)",
+              "Resource.addMethod (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:95:12)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:83:12)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/api/Default/alerts/PUT/ApiPermission.MessagesAlertsApiStackapi5EACD5B5.PUT..alerts": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apialertsPUTApiPermissionMessagesAlertsApiStackapi5EACD5B5PUTalerts041D8FFA",
+            "trace": [
+              "Function.addPermission (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-lambda/lib/function-base.ts:130:5)",
+              "LambdaIntegration.bind (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/integrations/lambda.ts:41:18)",
+              "new Method (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/method.ts:98:36)",
+              "Resource.addMethod (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:95:12)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:84:12)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/api/Default/alerts/PUT/ApiPermission.Test.MessagesAlertsApiStackapi5EACD5B5.PUT..alerts": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apialertsPUTApiPermissionTestMessagesAlertsApiStackapi5EACD5B5PUTalertsF4D3FFB9",
+            "trace": [
+              "Function.addPermission (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-lambda/lib/function-base.ts:130:5)",
+              "LambdaIntegration.bind (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/integrations/lambda.ts:49:20)",
+              "new Method (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/method.ts:98:36)",
+              "Resource.addMethod (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:95:12)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:84:12)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/api/Default/alerts/PUT/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apialertsPUTED41D15C",
+            "trace": [
+              "new Method (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/method.ts:116:22)",
+              "Resource.addMethod (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:95:12)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:84:12)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/api/Default/events/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apieventsD4AD116F",
+            "trace": [
+              "new Resource (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:342:22)",
+              "RootResource.addResource (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:91:12)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:86:29)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/api/Default/events/OPTIONS/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apieventsOPTIONS26077F99",
+            "trace": [
+              "new Method (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/method.ts:116:22)",
+              "Resource.addMethod (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:95:12)",
+              "Resource.addCorsPreflight (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:201:17)",
+              "new Resource (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:368:12)",
+              "RootResource.addResource (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:91:12)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:86:29)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/api/Default/events/PUT/ApiPermission.MessagesAlertsApiStackapi5EACD5B5.PUT..events": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apieventsPUTApiPermissionMessagesAlertsApiStackapi5EACD5B5PUTeventsFEBB2B9C",
+            "trace": [
+              "Function.addPermission (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-lambda/lib/function-base.ts:130:5)",
+              "LambdaIntegration.bind (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/integrations/lambda.ts:41:18)",
+              "new Method (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/method.ts:98:36)",
+              "Resource.addMethod (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:95:12)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:88:12)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/api/Default/events/PUT/ApiPermission.Test.MessagesAlertsApiStackapi5EACD5B5.PUT..events": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apieventsPUTApiPermissionTestMessagesAlertsApiStackapi5EACD5B5PUTevents83C9E259",
+            "trace": [
+              "Function.addPermission (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-lambda/lib/function-base.ts:130:5)",
+              "LambdaIntegration.bind (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/integrations/lambda.ts:49:20)",
+              "new Method (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/method.ts:98:36)",
+              "Resource.addMethod (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:95:12)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:88:12)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/api/Default/events/PUT/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apieventsPUT245AF0A8",
+            "trace": [
+              "new Method (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/method.ts:116:22)",
+              "Resource.addMethod (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:95:12)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:88:12)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/EventBus/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EventBus7B8748AA",
+            "trace": [
+              "new EventBus (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-events/lib/event-bus.ts:211:22)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:90:17)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/MessageEventsRule/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MessageEventsRule14ED41A2",
+            "trace": [
+              "new Rule (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-events/lib/rule.ts:73:22)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:94:31)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/MessageEventsRule/AllowEventRuleMessagesAlertsApiStackPutMessageHandler647CC573": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MessageEventsRuleAllowEventRuleMessagesAlertsApiStackPutMessageHandler647CC57310C9BAEA",
+            "trace": [
+              "Function.addPermission (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-lambda/lib/function-base.ts:130:5)",
+              "Object.addLambdaPermission (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-events-targets/lib/util.ts:79:13)",
+              "LambdaFunction.bind (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-events-targets/lib/lambda.ts:20:5)",
+              "Rule.addTarget (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-events/lib/rule.ts:104:32)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:112:23)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/AlertEventsRule/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AlertEventsRule8E357077",
+            "trace": [
+              "new Rule (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-events/lib/rule.ts:73:22)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:103:29)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/AlertEventsRule/AllowEventRuleMessagesAlertsApiStackPutAlertHandler5470F0A9": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AlertEventsRuleAllowEventRuleMessagesAlertsApiStackPutAlertHandler5470F0A9B0AB97DE",
+            "trace": [
+              "Function.addPermission (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-lambda/lib/function-base.ts:130:5)",
+              "Object.addLambdaPermission (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-events-targets/lib/util.ts:79:13)",
+              "LambdaFunction.bind (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-events-targets/lib/lambda.ts:20:5)",
+              "Rule.addTarget (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-events/lib/rule.ts:104:32)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:113:21)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/messages-bucket-815673034358/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "messagesbucket8156730343584CDA6B61",
+            "trace": [
+              "new Bucket (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-s3/lib/bucket.ts:715:22)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:117:22)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/swagger-bucket-815673034358/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "swaggerbucket81567303435898B274DB",
+            "trace": [
+              "new Bucket (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-s3/lib/bucket.ts:715:22)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:120:27)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/swagger-bucket-815673034358/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "swaggerbucket815673034358PolicyD828247F",
+            "trace": [
+              "new BucketPolicy (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-s3/lib/bucket-policy.ts:30:21)",
+              "Bucket.addToResourcePolicy (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-s3/lib/bucket.ts:228:21)",
+              "Function.addToPrincipalOrResource (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-iam/lib/grant.ts:76:45)",
+              "Bucket.grantPublicAccess (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-s3/lib/bucket.ts:329:22)",
+              "new Bucket (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-s3/lib/bucket.ts:775:12)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:120:27)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/swaggerDistribution/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "swaggerDistribution88B03F7C",
+            "trace": [
+              "new Distribution (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-cloudfront/lib/distribution.ts:165:26)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:127:5)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/deploySwaggerWebsite/AwsCliLayer/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "deploySwaggerWebsiteAwsCliLayer1B362D91",
+            "trace": [
+              "new LayerVersion (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-lambda/lib/layers.ts:132:39)",
+              "new AwsCliLayer (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/lambda-layer-awscli/lib/awscli-layer.ts:10:5)",
+              "new BucketDeployment (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-s3-deployment/lib/bucket-deployment.ts:144:16)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:131:24)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/deploySwaggerWebsite/CustomResource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "deploySwaggerWebsiteCustomResourceDE96AA2B",
+            "trace": [
+              "new CustomResource (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/core/lib/custom-resource.ts:36:21)",
+              "new BucketDeployment (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-s3-deployment/lib/bucket-deployment.ts:176:5)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:131:24)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRole89A01265",
+            "trace": [
+              "new Role (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-iam/lib/role.ts:199:18)",
+              "new Function (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-lambda/lib/function.ts:318:31)",
+              "SingletonFunction.ensureLambda (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.ts:93:12)",
+              "new SingletonFunction (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.ts:32:32)",
+              "new BucketDeployment (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-s3-deployment/lib/bucket-deployment.ts:141:21)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:131:24)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRoleDefaultPolicy88902FDF",
+            "trace": [
+              "new Policy (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-iam/lib/policy.ts:89:22)",
+              "Role.addToPrincipalPolicy (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-iam/lib/role.ts:236:28)",
+              "Function.addToPrincipal (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-iam/lib/grant.ts:92:61)",
+              "Function.addToPrincipalOrResource (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-iam/lib/grant.ts:48:26)",
+              "Import.grant (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-s3/lib/bucket.ts:384:27)",
+              "Import.grantRead (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-s3/lib/bucket.ts:281:17)",
+              "Asset.grantRead (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-s3-assets/lib/asset.ts:128:17)",
+              "Object.bind (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-s3-deployment/lib/source.ts:65:15)",
+              "/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-s3-deployment/lib/bucket-deployment.ts:165:83",
+              "Array.map (<anonymous>)",
+              "new BucketDeployment (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-s3-deployment/lib/bucket-deployment.ts:165:51)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:131:24)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C81C01536",
+            "trace": [
+              "new Function (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-lambda/lib/function.ts:388:35)",
+              "SingletonFunction.ensureLambda (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.ts:93:12)",
+              "new SingletonFunction (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.ts:32:32)",
+              "new BucketDeployment (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-s3-deployment/lib/bucket-deployment.ts:141:21)",
+              "new MessagesAlertsApiStack (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lib/messages-alerts-api-stack.ts:131:24)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:8:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata",
+            "trace": [
+              "new MetadataResource (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/core/lib/private/metadata-resource.ts:22:24)",
+              "/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/core/lib/private/synthesis.ts:166:5",
+              "visit (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/core/lib/private/synthesis.ts:231:5)",
+              "visit (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/core/lib/private/synthesis.ts:227:5)",
+              "injectMetadataResources (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/core/lib/private/synthesis.ts:157:3)",
+              "Object.synthesize (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/core/lib/private/synthesis.ts:18:3)",
+              "App.synth (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/core/lib/stage.ts:94:23)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:15:5)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion",
+            "trace": [
+              "addBootstrapVersionRule (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/core/lib/stack-synthesizers/default-synthesizer.ts:458:17)",
+              "DefaultStackSynthesizer.synthesize (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/core/lib/stack-synthesizers/default-synthesizer.ts:284:7)",
+              "/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/core/lib/private/synthesis.ts:184:29",
+              "visit (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/core/lib/private/synthesis.ts:231:5)",
+              "visit (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/core/lib/private/synthesis.ts:227:5)",
+              "synthesizeTree (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/core/lib/private/synthesis.ts:176:3)",
+              "Object.synthesize (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/core/lib/private/synthesis.ts:39:3)",
+              "App.synth (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/core/lib/stage.ts:94:23)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:15:5)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/MessagesAlertsApiStack/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion",
+            "trace": [
+              "addBootstrapVersionRule (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/core/lib/stack-synthesizers/default-synthesizer.ts:468:3)",
+              "DefaultStackSynthesizer.synthesize (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/core/lib/stack-synthesizers/default-synthesizer.ts:284:7)",
+              "/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/core/lib/private/synthesis.ts:184:29",
+              "visit (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/core/lib/private/synthesis.ts:231:5)",
+              "visit (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/core/lib/private/synthesis.ts:227:5)",
+              "synthesizeTree (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/core/lib/private/synthesis.ts:176:3)",
+              "Object.synthesize (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/core/lib/private/synthesis.ts:39:3)",
+              "App.synth (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/core/lib/stage.ts:94:23)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/bin/messages-alerts-api-local.ts:15:5)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ]
+      },
+      "displayName": "MessagesAlertsApiStack"
+    }
+  }
+}

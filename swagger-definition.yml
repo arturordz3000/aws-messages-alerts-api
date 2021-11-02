@@ -1,0 +1,150 @@
+swagger: "2.0"
+info:
+  version: "2021-10-29T16:10:25Z"
+  title: "messages-alerts-api"
+host: "x3pguplgk1.execute-api.us-east-2.amazonaws.com"
+basePath: "/prod"
+schemes:
+- "https"
+paths:
+  /events:
+    put:
+      tags:
+        - Events
+      summary: Enqueues messages and alerts events
+      responses: 
+        '200':
+          description: A JSON object with the enqueued object id
+      parameters:
+        - in: body
+          name: event
+          schema:
+            $ref: '#/definitions/Event'
+  /messages/{id}:
+    get:
+      tags:
+        - Messages
+      summary: Gets a message object by id
+      responses: 
+        '200':
+          description: A JSON object
+      parameters:
+        - in: path
+          name: id
+          type: string
+          description: Event Id
+          required: true
+  /messages:
+    get:
+      tags:
+        - Messages
+      summary: Gets an array of message objects that can be filtered by a range of dates
+      description: This endpoint will fetch the data using the given range of dates. If no range is provided, the endpoint will try to fetch messages from the last 24 hours.
+      responses: 
+        '200':
+          description: A JSON array with the messages
+      parameters:
+        - in: query
+          name: start
+          type: number
+          description: Timestamp value for the start date (default is today's initial timestamp)
+          required: false
+        - in: query
+          name: end
+          type: number
+          description: Timestamp value for the end date (default is today's final timestamp)
+          required: false
+    put:
+      tags:
+        - Messages
+      summary: Creates a new message object
+      responses: 
+        '200':
+          description: A string with the object id
+      parameters:
+        - in: body
+          name: message
+          schema:
+            $ref: '#/definitions/Message'
+  
+  /alerts/{id}:
+    get:
+      tags:
+        - Alerts
+      summary: Gets an alert object by id
+      responses: 
+        '200':
+          description: A JSON object
+      parameters:
+        - in: path
+          name: id
+          type: string
+          description: Event Id
+          required: true
+  /alerts:
+    get:
+      tags:
+        - Alerts
+      summary: Gets an array of alert objects that can be filtered by a range of dates
+      description: This endpoint will fetch the data using the given range of dates. If no range is provided, the endpoint will try to fetch today alerts from the last 24 hours.
+      responses: 
+        '200':
+          description: A JSON array with the alerts
+      parameters:
+        - in: query
+          name: start
+          type: number
+          description: Timestamp value for the start date (default is today's initial timestamp)
+          required: false
+        - in: query
+          name: end
+          type: number
+          description: Timestamp value for the end date (default is today's final timestamp)
+          required: false
+    put:
+      tags:
+        - Alerts
+      summary: Creates a new alert object
+      responses: 
+        '200':
+          description: A string with the object id
+      parameters:
+        - in: body
+          name: alert
+          schema:
+            $ref: '#/definitions/Alert'
+definitions:
+  Message:
+    type: object
+    required:
+      - message
+    properties:
+      message:
+        type: object
+        required:
+          - value
+        properties:
+          value:
+            type: string
+  Alert:
+    type: object
+    required:
+      - alert
+    properties:
+      alert:
+        type: object
+        required:
+          - value
+        properties:
+          value:
+            type: string
+  Event:
+    type: object
+    required:
+      - eventType
+      - value
+    properties:
+      eventType:
+        type: string
+      value:
+        type: string

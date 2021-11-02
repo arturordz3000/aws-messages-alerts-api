@@ -1,0 +1,76 @@
+{
+  "version": "14.0.0",
+  "files": {
+    "22c25efb5a5e66da2a7ecc9364b6235cd9855a16b0383d1126885ad6f29fc2bc": {
+      "source": {
+        "path": "/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lambdas",
+        "packaging": "zip"
+      },
+      "destinations": {
+        "815673034358-us-east-2": {
+          "bucketName": "cdk-hnb659fds-assets-815673034358-us-east-2",
+          "objectKey": "22c25efb5a5e66da2a7ecc9364b6235cd9855a16b0383d1126885ad6f29fc2bc.zip",
+          "region": "us-east-2",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::815673034358:role/cdk-hnb659fds-file-publishing-role-815673034358-us-east-2"
+        }
+      }
+    },
+    "e9882ab123687399f934da0d45effe675ecc8ce13b40cb946f3e1d6141fe8d68": {
+      "source": {
+        "path": "/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/lambda-layer-awscli/lib/layer.zip",
+        "packaging": "file"
+      },
+      "destinations": {
+        "815673034358-us-east-2": {
+          "bucketName": "cdk-hnb659fds-assets-815673034358-us-east-2",
+          "objectKey": "e9882ab123687399f934da0d45effe675ecc8ce13b40cb946f3e1d6141fe8d68.zip",
+          "region": "us-east-2",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::815673034358:role/cdk-hnb659fds-file-publishing-role-815673034358-us-east-2"
+        }
+      }
+    },
+    "a3058ccb468d757ebb89df5363a1c20f5307c6911136f29d00e1a68c9b2aa7e8": {
+      "source": {
+        "path": "/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/node_modules/@aws-cdk/aws-s3-deployment/lib/lambda",
+        "packaging": "zip"
+      },
+      "destinations": {
+        "815673034358-us-east-2": {
+          "bucketName": "cdk-hnb659fds-assets-815673034358-us-east-2",
+          "objectKey": "a3058ccb468d757ebb89df5363a1c20f5307c6911136f29d00e1a68c9b2aa7e8.zip",
+          "region": "us-east-2",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::815673034358:role/cdk-hnb659fds-file-publishing-role-815673034358-us-east-2"
+        }
+      }
+    },
+    "21ec46727d035e13f218de73e496ea0da028ea921d23ac092c48363608a725dc": {
+      "source": {
+        "path": "/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/swagger-ui",
+        "packaging": "zip"
+      },
+      "destinations": {
+        "815673034358-us-east-2": {
+          "bucketName": "cdk-hnb659fds-assets-815673034358-us-east-2",
+          "objectKey": "21ec46727d035e13f218de73e496ea0da028ea921d23ac092c48363608a725dc.zip",
+          "region": "us-east-2",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::815673034358:role/cdk-hnb659fds-file-publishing-role-815673034358-us-east-2"
+        }
+      }
+    },
+    "9057fcb1f7ebd8fd74653add5dfca7548909d59ddc49356156b064f10e0cd7a3": {
+      "source": {
+        "path": "MessagesAlertsApiStack.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "815673034358-us-east-2": {
+          "bucketName": "cdk-hnb659fds-assets-815673034358-us-east-2",
+          "objectKey": "9057fcb1f7ebd8fd74653add5dfca7548909d59ddc49356156b064f10e0cd7a3.json",
+          "region": "us-east-2",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::815673034358:role/cdk-hnb659fds-file-publishing-role-815673034358-us-east-2"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

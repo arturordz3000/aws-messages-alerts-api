@@ -1,0 +1,34 @@
+{
+  "version": "14.0.0",
+  "files": {
+    "0a7b3f7bfa91e61098c9b221398132596475d5f9bf6eff647e552b96c7795e4c": {
+      "source": {
+        "path": "/Users/arturorodriguez/Documents/Enroute Projects/Quil/TestProject/source/messages-alerts-api/lambdas",
+        "packaging": "zip"
+      },
+      "destinations": {
+        "815673034358-us-east-2": {
+          "bucketName": "cdk-hnb659fds-assets-815673034358-us-east-2",
+          "objectKey": "0a7b3f7bfa91e61098c9b221398132596475d5f9bf6eff647e552b96c7795e4c.zip",
+          "region": "us-east-2",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::815673034358:role/cdk-hnb659fds-file-publishing-role-815673034358-us-east-2"
+        }
+      }
+    },
+    "956c998dced594ff5ef92fda34fce1e5b044dab3bc337a83462893a733b47ee0": {
+      "source": {
+        "path": "ApiPipelineStacktestMessagesAlertsApiStack8663DFBF.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "815673034358-us-east-2": {
+          "bucketName": "cdk-hnb659fds-assets-815673034358-us-east-2",
+          "objectKey": "956c998dced594ff5ef92fda34fce1e5b044dab3bc337a83462893a733b47ee0.json",
+          "region": "us-east-2",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::815673034358:role/cdk-hnb659fds-file-publishing-role-815673034358-us-east-2"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

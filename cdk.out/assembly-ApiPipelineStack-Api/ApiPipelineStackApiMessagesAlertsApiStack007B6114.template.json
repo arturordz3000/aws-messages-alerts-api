@@ -1,0 +1,1376 @@
+{
+  "Resources": {
+    "GetMessagesHandlerServiceRole21FD5B23": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+              ]
+            ]
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "ApiPipelineStack/Api/MessagesAlertsApiStack/GetMessagesHandler/ServiceRole/Resource"
+      }
+    },
+    "GetMessagesHandlerServiceRoleDefaultPolicy80A31D10": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "dynamodb:BatchGetItem",
+                "dynamodb:GetRecords",
+                "dynamodb:GetShardIterator",
+                "dynamodb:Query",
+                "dynamodb:GetItem",
+                "dynamodb:Scan",
+                "dynamodb:ConditionCheckItem"
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
+                    "OrdersTable315BB997",
+                    "Arn"
+                  ]
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Fn::GetAtt": [
+                          "OrdersTable315BB997",
+                          "Arn"
+                        ]
+                      },
+                      "/index/*"
+                    ]
+                  ]
+                }
+              ]
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "PolicyName": "GetMessagesHandlerServiceRoleDefaultPolicy80A31D10",
+        "Roles": [
+          {
+            "Ref": "GetMessagesHandlerServiceRole21FD5B23"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "ApiPipelineStack/Api/MessagesAlertsApiStack/GetMessagesHandler/ServiceRole/DefaultPolicy/Resource"
+      }
+    },
+    "GetMessagesHandlerF61D6CE8": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": "cdk-hnb659fds-assets-815673034358-us-east-2",
+          "S3Key": "d655190cb10ff5f7465633093911b25cc20ec9ba36514d1082cc6eaeb0565c64.zip"
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "GetMessagesHandlerServiceRole21FD5B23",
+            "Arn"
+          ]
+        },
+        "Handler": "get-messages.handler",
+        "Runtime": "nodejs14.x"
+      },
+      "DependsOn": [
+        "GetMessagesHandlerServiceRoleDefaultPolicy80A31D10",
+        "GetMessagesHandlerServiceRole21FD5B23"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "ApiPipelineStack/Api/MessagesAlertsApiStack/GetMessagesHandler/Resource",
+        "aws:asset:path": "../asset.d655190cb10ff5f7465633093911b25cc20ec9ba36514d1082cc6eaeb0565c64",
+        "aws:asset:property": "Code"
+      }
+    },
+    "PutMessageHandlerServiceRole5CFA5E47": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+              ]
+            ]
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "ApiPipelineStack/Api/MessagesAlertsApiStack/PutMessageHandler/ServiceRole/Resource"
+      }
+    },
+    "PutMessageHandlerServiceRoleDefaultPolicyE6958A12": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "dynamodb:BatchWriteItem",
+                "dynamodb:PutItem",
+                "dynamodb:UpdateItem",
+                "dynamodb:DeleteItem"
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
+                    "OrdersTable315BB997",
+                    "Arn"
+                  ]
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Fn::GetAtt": [
+                          "OrdersTable315BB997",
+                          "Arn"
+                        ]
+                      },
+                      "/index/*"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "Action": [
+                "s3:GetObject*",
+                "s3:GetBucket*",
+                "s3:List*",
+                "s3:DeleteObject*",
+                "s3:PutObject",
+                "s3:Abort*"
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
+                    "messagesbucket65889C6B",
+                    "Arn"
+                  ]
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Fn::GetAtt": [
+                          "messagesbucket65889C6B",
+                          "Arn"
+                        ]
+                      },
+                      "/*"
+                    ]
+                  ]
+                }
+              ]
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "PolicyName": "PutMessageHandlerServiceRoleDefaultPolicyE6958A12",
+        "Roles": [
+          {
+            "Ref": "PutMessageHandlerServiceRole5CFA5E47"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "ApiPipelineStack/Api/MessagesAlertsApiStack/PutMessageHandler/ServiceRole/DefaultPolicy/Resource"
+      }
+    },
+    "PutMessageHandler14BECFD0": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": "cdk-hnb659fds-assets-815673034358-us-east-2",
+          "S3Key": "d655190cb10ff5f7465633093911b25cc20ec9ba36514d1082cc6eaeb0565c64.zip"
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "PutMessageHandlerServiceRole5CFA5E47",
+            "Arn"
+          ]
+        },
+        "Handler": "put-message.handler",
+        "Runtime": "nodejs14.x"
+      },
+      "DependsOn": [
+        "PutMessageHandlerServiceRoleDefaultPolicyE6958A12",
+        "PutMessageHandlerServiceRole5CFA5E47"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "ApiPipelineStack/Api/MessagesAlertsApiStack/PutMessageHandler/Resource",
+        "aws:asset:path": "../asset.d655190cb10ff5f7465633093911b25cc20ec9ba36514d1082cc6eaeb0565c64",
+        "aws:asset:property": "Code"
+      }
+    },
+    "GetAlertsHandlerServiceRole378BA15B": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+              ]
+            ]
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "ApiPipelineStack/Api/MessagesAlertsApiStack/GetAlertsHandler/ServiceRole/Resource"
+      }
+    },
+    "GetAlertsHandlerServiceRoleDefaultPolicyE7EA32AB": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "dynamodb:BatchGetItem",
+                "dynamodb:GetRecords",
+                "dynamodb:GetShardIterator",
+                "dynamodb:Query",
+                "dynamodb:GetItem",
+                "dynamodb:Scan",
+                "dynamodb:ConditionCheckItem"
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
+                    "OrdersTable315BB997",
+                    "Arn"
+                  ]
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Fn::GetAtt": [
+                          "OrdersTable315BB997",
+                          "Arn"
+                        ]
+                      },
+                      "/index/*"
+                    ]
+                  ]
+                }
+              ]
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "PolicyName": "GetAlertsHandlerServiceRoleDefaultPolicyE7EA32AB",
+        "Roles": [
+          {
+            "Ref": "GetAlertsHandlerServiceRole378BA15B"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "ApiPipelineStack/Api/MessagesAlertsApiStack/GetAlertsHandler/ServiceRole/DefaultPolicy/Resource"
+      }
+    },
+    "GetAlertsHandler9D633492": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": "cdk-hnb659fds-assets-815673034358-us-east-2",
+          "S3Key": "d655190cb10ff5f7465633093911b25cc20ec9ba36514d1082cc6eaeb0565c64.zip"
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "GetAlertsHandlerServiceRole378BA15B",
+            "Arn"
+          ]
+        },
+        "Handler": "get-alerts.handler",
+        "Runtime": "nodejs14.x"
+      },
+      "DependsOn": [
+        "GetAlertsHandlerServiceRoleDefaultPolicyE7EA32AB",
+        "GetAlertsHandlerServiceRole378BA15B"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "ApiPipelineStack/Api/MessagesAlertsApiStack/GetAlertsHandler/Resource",
+        "aws:asset:path": "../asset.d655190cb10ff5f7465633093911b25cc20ec9ba36514d1082cc6eaeb0565c64",
+        "aws:asset:property": "Code"
+      }
+    },
+    "PutAlertHandlerServiceRole4E4BCEA3": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+              ]
+            ]
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "ApiPipelineStack/Api/MessagesAlertsApiStack/PutAlertHandler/ServiceRole/Resource"
+      }
+    },
+    "PutAlertHandlerServiceRoleDefaultPolicy6E7F8218": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "dynamodb:BatchWriteItem",
+                "dynamodb:PutItem",
+                "dynamodb:UpdateItem",
+                "dynamodb:DeleteItem"
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
+                    "OrdersTable315BB997",
+                    "Arn"
+                  ]
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Fn::GetAtt": [
+                          "OrdersTable315BB997",
+                          "Arn"
+                        ]
+                      },
+                      "/index/*"
+                    ]
+                  ]
+                }
+              ]
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "PolicyName": "PutAlertHandlerServiceRoleDefaultPolicy6E7F8218",
+        "Roles": [
+          {
+            "Ref": "PutAlertHandlerServiceRole4E4BCEA3"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "ApiPipelineStack/Api/MessagesAlertsApiStack/PutAlertHandler/ServiceRole/DefaultPolicy/Resource"
+      }
+    },
+    "PutAlertHandler0E57036C": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": "cdk-hnb659fds-assets-815673034358-us-east-2",
+          "S3Key": "d655190cb10ff5f7465633093911b25cc20ec9ba36514d1082cc6eaeb0565c64.zip"
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "PutAlertHandlerServiceRole4E4BCEA3",
+            "Arn"
+          ]
+        },
+        "Handler": "put-alert.handler",
+        "Runtime": "nodejs14.x"
+      },
+      "DependsOn": [
+        "PutAlertHandlerServiceRoleDefaultPolicy6E7F8218",
+        "PutAlertHandlerServiceRole4E4BCEA3"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "ApiPipelineStack/Api/MessagesAlertsApiStack/PutAlertHandler/Resource",
+        "aws:asset:path": "../asset.d655190cb10ff5f7465633093911b25cc20ec9ba36514d1082cc6eaeb0565c64",
+        "aws:asset:property": "Code"
+      }
+    },
+    "EnqueueEventHandlerServiceRole9009BDD9": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+              ]
+            ]
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "ApiPipelineStack/Api/MessagesAlertsApiStack/EnqueueEventHandler/ServiceRole/Resource"
+      }
+    },
+    "EnqueueEventHandlerServiceRoleDefaultPolicy4C21C258": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": "events:PutEvents",
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::GetAtt": [
+                  "EventBus7B8748AA",
+                  "Arn"
+                ]
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "PolicyName": "EnqueueEventHandlerServiceRoleDefaultPolicy4C21C258",
+        "Roles": [
+          {
+            "Ref": "EnqueueEventHandlerServiceRole9009BDD9"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "ApiPipelineStack/Api/MessagesAlertsApiStack/EnqueueEventHandler/ServiceRole/DefaultPolicy/Resource"
+      }
+    },
+    "EnqueueEventHandler76A2594C": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": "cdk-hnb659fds-assets-815673034358-us-east-2",
+          "S3Key": "d655190cb10ff5f7465633093911b25cc20ec9ba36514d1082cc6eaeb0565c64.zip"
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "EnqueueEventHandlerServiceRole9009BDD9",
+            "Arn"
+          ]
+        },
+        "Handler": "enqueue-event.handler",
+        "Runtime": "nodejs14.x"
+      },
+      "DependsOn": [
+        "EnqueueEventHandlerServiceRoleDefaultPolicy4C21C258",
+        "EnqueueEventHandlerServiceRole9009BDD9"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "ApiPipelineStack/Api/MessagesAlertsApiStack/EnqueueEventHandler/Resource",
+        "aws:asset:path": "../asset.d655190cb10ff5f7465633093911b25cc20ec9ba36514d1082cc6eaeb0565c64",
+        "aws:asset:property": "Code"
+      }
+    },
+    "OrdersTable315BB997": {
+      "Type": "AWS::DynamoDB::Table",
+      "Properties": {
+        "KeySchema": [
+          {
+            "AttributeName": "id",
+            "KeyType": "HASH"
+          },
+          {
+            "AttributeName": "creation_date",
+            "KeyType": "RANGE"
+          }
+        ],
+        "AttributeDefinitions": [
+          {
+            "AttributeName": "id",
+            "AttributeType": "S"
+          },
+          {
+            "AttributeName": "creation_date",
+            "AttributeType": "N"
+          },
+          {
+            "AttributeName": "type",
+            "AttributeType": "S"
+          }
+        ],
+        "BillingMode": "PAY_PER_REQUEST",
+        "GlobalSecondaryIndexes": [
+          {
+            "IndexName": "message_type",
+            "KeySchema": [
+              {
+                "AttributeName": "type",
+                "KeyType": "HASH"
+              },
+              {
+                "AttributeName": "creation_date",
+                "KeyType": "RANGE"
+              }
+            ],
+            "Projection": {
+              "ProjectionType": "ALL"
+            }
+          }
+        ],
+        "TableName": "Events"
+      },
+      "UpdateReplacePolicy": "Delete",
+      "DeletionPolicy": "Delete",
+      "Metadata": {
+        "aws:cdk:path": "ApiPipelineStack/Api/MessagesAlertsApiStack/OrdersTable/Resource"
+      }
+    },
+    "apiC8550315": {
+      "Type": "AWS::ApiGateway::RestApi",
+      "Properties": {
+        "Name": "messages-alerts-api"
+      },
+      "Metadata": {
+        "aws:cdk:path": "ApiPipelineStack/Api/MessagesAlertsApiStack/api/Resource"
+      }
+    },
+    "apiCloudWatchRoleAC81D93E": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "apigateway.amazonaws.com"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":iam::aws:policy/service-role/AmazonAPIGatewayPushToCloudWatchLogs"
+              ]
+            ]
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "ApiPipelineStack/Api/MessagesAlertsApiStack/api/CloudWatchRole/Resource"
+      }
+    },
+    "apiAccount57E28B43": {
+      "Type": "AWS::ApiGateway::Account",
+      "Properties": {
+        "CloudWatchRoleArn": {
+          "Fn::GetAtt": [
+            "apiCloudWatchRoleAC81D93E",
+            "Arn"
+          ]
+        }
+      },
+      "DependsOn": [
+        "apiC8550315"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "ApiPipelineStack/Api/MessagesAlertsApiStack/api/Account"
+      }
+    },
+    "apiDeployment149F12940c90d328c11a3f29d2b7e9df7c41c759": {
+      "Type": "AWS::ApiGateway::Deployment",
+      "Properties": {
+        "RestApiId": {
+          "Ref": "apiC8550315"
+        },
+        "Description": "Automatically created by the RestApi construct"
+      },
+      "DependsOn": [
+        "apialertsGET8416AF12",
+        "apialertsPUTED41D15C",
+        "apialertsEBDD0F2E",
+        "apimessagesGET80153A2D",
+        "apimessagesPUTB34E365B",
+        "apimessages69C8064A"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "ApiPipelineStack/Api/MessagesAlertsApiStack/api/Deployment/Resource"
+      }
+    },
+    "apiDeploymentStageprod896C8101": {
+      "Type": "AWS::ApiGateway::Stage",
+      "Properties": {
+        "RestApiId": {
+          "Ref": "apiC8550315"
+        },
+        "DeploymentId": {
+          "Ref": "apiDeployment149F12940c90d328c11a3f29d2b7e9df7c41c759"
+        },
+        "StageName": "prod"
+      },
+      "Metadata": {
+        "aws:cdk:path": "ApiPipelineStack/Api/MessagesAlertsApiStack/api/DeploymentStage.prod/Resource"
+      }
+    },
+    "apimessages69C8064A": {
+      "Type": "AWS::ApiGateway::Resource",
+      "Properties": {
+        "ParentId": {
+          "Fn::GetAtt": [
+            "apiC8550315",
+            "RootResourceId"
+          ]
+        },
+        "PathPart": "messages",
+        "RestApiId": {
+          "Ref": "apiC8550315"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "ApiPipelineStack/Api/MessagesAlertsApiStack/api/Default/messages/Resource"
+      }
+    },
+    "apimessagesGETApiPermissionApiPipelineStackApiMessagesAlertsApiStackapi6214F2A9GETmessages38B54BD4": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "GetMessagesHandlerF61D6CE8",
+            "Arn"
+          ]
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:us-east-2:815673034358:",
+              {
+                "Ref": "apiC8550315"
+              },
+              "/",
+              {
+                "Ref": "apiDeploymentStageprod896C8101"
+              },
+              "/GET/messages"
+            ]
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "ApiPipelineStack/Api/MessagesAlertsApiStack/api/Default/messages/GET/ApiPermission.ApiPipelineStackApiMessagesAlertsApiStackapi6214F2A9.GET..messages"
+      }
+    },
+    "apimessagesGETApiPermissionTestApiPipelineStackApiMessagesAlertsApiStackapi6214F2A9GETmessages9EBEC33E": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "GetMessagesHandlerF61D6CE8",
+            "Arn"
+          ]
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:us-east-2:815673034358:",
+              {
+                "Ref": "apiC8550315"
+              },
+              "/test-invoke-stage/GET/messages"
+            ]
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "ApiPipelineStack/Api/MessagesAlertsApiStack/api/Default/messages/GET/ApiPermission.Test.ApiPipelineStackApiMessagesAlertsApiStackapi6214F2A9.GET..messages"
+      }
+    },
+    "apimessagesGET80153A2D": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "HttpMethod": "GET",
+        "ResourceId": {
+          "Ref": "apimessages69C8064A"
+        },
+        "RestApiId": {
+          "Ref": "apiC8550315"
+        },
+        "AuthorizationType": "NONE",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":apigateway:us-east-2:lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "GetMessagesHandlerF61D6CE8",
+                    "Arn"
+                  ]
+                },
+                "/invocations"
+              ]
+            ]
+          }
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "ApiPipelineStack/Api/MessagesAlertsApiStack/api/Default/messages/GET/Resource"
+      }
+    },
+    "apimessagesPUTApiPermissionApiPipelineStackApiMessagesAlertsApiStackapi6214F2A9PUTmessages1C669A5D": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "PutMessageHandler14BECFD0",
+            "Arn"
+          ]
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:us-east-2:815673034358:",
+              {
+                "Ref": "apiC8550315"
+              },
+              "/",
+              {
+                "Ref": "apiDeploymentStageprod896C8101"
+              },
+              "/PUT/messages"
+            ]
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "ApiPipelineStack/Api/MessagesAlertsApiStack/api/Default/messages/PUT/ApiPermission.ApiPipelineStackApiMessagesAlertsApiStackapi6214F2A9.PUT..messages"
+      }
+    },
+    "apimessagesPUTApiPermissionTestApiPipelineStackApiMessagesAlertsApiStackapi6214F2A9PUTmessagesE1AB4AA4": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "PutMessageHandler14BECFD0",
+            "Arn"
+          ]
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:us-east-2:815673034358:",
+              {
+                "Ref": "apiC8550315"
+              },
+              "/test-invoke-stage/PUT/messages"
+            ]
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "ApiPipelineStack/Api/MessagesAlertsApiStack/api/Default/messages/PUT/ApiPermission.Test.ApiPipelineStackApiMessagesAlertsApiStackapi6214F2A9.PUT..messages"
+      }
+    },
+    "apimessagesPUTB34E365B": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "HttpMethod": "PUT",
+        "ResourceId": {
+          "Ref": "apimessages69C8064A"
+        },
+        "RestApiId": {
+          "Ref": "apiC8550315"
+        },
+        "AuthorizationType": "NONE",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":apigateway:us-east-2:lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "PutMessageHandler14BECFD0",
+                    "Arn"
+                  ]
+                },
+                "/invocations"
+              ]
+            ]
+          }
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "ApiPipelineStack/Api/MessagesAlertsApiStack/api/Default/messages/PUT/Resource"
+      }
+    },
+    "apialertsEBDD0F2E": {
+      "Type": "AWS::ApiGateway::Resource",
+      "Properties": {
+        "ParentId": {
+          "Fn::GetAtt": [
+            "apiC8550315",
+            "RootResourceId"
+          ]
+        },
+        "PathPart": "alerts",
+        "RestApiId": {
+          "Ref": "apiC8550315"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "ApiPipelineStack/Api/MessagesAlertsApiStack/api/Default/alerts/Resource"
+      }
+    },
+    "apialertsGETApiPermissionApiPipelineStackApiMessagesAlertsApiStackapi6214F2A9GETalerts5EA4B91E": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "GetAlertsHandler9D633492",
+            "Arn"
+          ]
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:us-east-2:815673034358:",
+              {
+                "Ref": "apiC8550315"
+              },
+              "/",
+              {
+                "Ref": "apiDeploymentStageprod896C8101"
+              },
+              "/GET/alerts"
+            ]
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "ApiPipelineStack/Api/MessagesAlertsApiStack/api/Default/alerts/GET/ApiPermission.ApiPipelineStackApiMessagesAlertsApiStackapi6214F2A9.GET..alerts"
+      }
+    },
+    "apialertsGETApiPermissionTestApiPipelineStackApiMessagesAlertsApiStackapi6214F2A9GETalertsC4ABA66C": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "GetAlertsHandler9D633492",
+            "Arn"
+          ]
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:us-east-2:815673034358:",
+              {
+                "Ref": "apiC8550315"
+              },
+              "/test-invoke-stage/GET/alerts"
+            ]
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "ApiPipelineStack/Api/MessagesAlertsApiStack/api/Default/alerts/GET/ApiPermission.Test.ApiPipelineStackApiMessagesAlertsApiStackapi6214F2A9.GET..alerts"
+      }
+    },
+    "apialertsGET8416AF12": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "HttpMethod": "GET",
+        "ResourceId": {
+          "Ref": "apialertsEBDD0F2E"
+        },
+        "RestApiId": {
+          "Ref": "apiC8550315"
+        },
+        "AuthorizationType": "NONE",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":apigateway:us-east-2:lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "GetAlertsHandler9D633492",
+                    "Arn"
+                  ]
+                },
+                "/invocations"
+              ]
+            ]
+          }
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "ApiPipelineStack/Api/MessagesAlertsApiStack/api/Default/alerts/GET/Resource"
+      }
+    },
+    "apialertsPUTApiPermissionApiPipelineStackApiMessagesAlertsApiStackapi6214F2A9PUTalertsDA152891": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "PutAlertHandler0E57036C",
+            "Arn"
+          ]
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:us-east-2:815673034358:",
+              {
+                "Ref": "apiC8550315"
+              },
+              "/",
+              {
+                "Ref": "apiDeploymentStageprod896C8101"
+              },
+              "/PUT/alerts"
+            ]
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "ApiPipelineStack/Api/MessagesAlertsApiStack/api/Default/alerts/PUT/ApiPermission.ApiPipelineStackApiMessagesAlertsApiStackapi6214F2A9.PUT..alerts"
+      }
+    },
+    "apialertsPUTApiPermissionTestApiPipelineStackApiMessagesAlertsApiStackapi6214F2A9PUTalertsE1EB6D9C": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "PutAlertHandler0E57036C",
+            "Arn"
+          ]
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:us-east-2:815673034358:",
+              {
+                "Ref": "apiC8550315"
+              },
+              "/test-invoke-stage/PUT/alerts"
+            ]
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "ApiPipelineStack/Api/MessagesAlertsApiStack/api/Default/alerts/PUT/ApiPermission.Test.ApiPipelineStackApiMessagesAlertsApiStackapi6214F2A9.PUT..alerts"
+      }
+    },
+    "apialertsPUTED41D15C": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "HttpMethod": "PUT",
+        "ResourceId": {
+          "Ref": "apialertsEBDD0F2E"
+        },
+        "RestApiId": {
+          "Ref": "apiC8550315"
+        },
+        "AuthorizationType": "NONE",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":apigateway:us-east-2:lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "PutAlertHandler0E57036C",
+                    "Arn"
+                  ]
+                },
+                "/invocations"
+              ]
+            ]
+          }
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "ApiPipelineStack/Api/MessagesAlertsApiStack/api/Default/alerts/PUT/Resource"
+      }
+    },
+    "EventBus7B8748AA": {
+      "Type": "AWS::Events::EventBus",
+      "Properties": {
+        "Name": "messages-alerts-event-bus"
+      },
+      "Metadata": {
+        "aws:cdk:path": "ApiPipelineStack/Api/MessagesAlertsApiStack/EventBus/Resource"
+      }
+    },
+    "MessageEventsRule14ED41A2": {
+      "Type": "AWS::Events::Rule",
+      "Properties": {
+        "Description": "Rule for message events",
+        "EventBusName": {
+          "Ref": "EventBus7B8748AA"
+        },
+        "EventPattern": {
+          "detail-type": [
+            "message"
+          ]
+        },
+        "Name": "message-events-rule",
+        "State": "ENABLED",
+        "Targets": [
+          {
+            "Arn": {
+              "Fn::GetAtt": [
+                "PutMessageHandler14BECFD0",
+                "Arn"
+              ]
+            },
+            "Id": "Target0"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "ApiPipelineStack/Api/MessagesAlertsApiStack/MessageEventsRule/Resource"
+      }
+    },
+    "MessageEventsRuleAllowEventRuleApiPipelineStackApiMessagesAlertsApiStackPutMessageHandlerEC5D69E3C2BCF0A2": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "PutMessageHandler14BECFD0",
+            "Arn"
+          ]
+        },
+        "Principal": "events.amazonaws.com",
+        "SourceArn": {
+          "Fn::GetAtt": [
+            "MessageEventsRule14ED41A2",
+            "Arn"
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "ApiPipelineStack/Api/MessagesAlertsApiStack/MessageEventsRule/AllowEventRuleApiPipelineStackApiMessagesAlertsApiStackPutMessageHandlerEC5D69E3"
+      }
+    },
+    "AlertEventsRule8E357077": {
+      "Type": "AWS::Events::Rule",
+      "Properties": {
+        "Description": "Rule for alert events",
+        "EventBusName": {
+          "Ref": "EventBus7B8748AA"
+        },
+        "EventPattern": {
+          "detail-type": [
+            "alert"
+          ]
+        },
+        "Name": "alert-events-rule",
+        "State": "ENABLED",
+        "Targets": [
+          {
+            "Arn": {
+              "Fn::GetAtt": [
+                "PutAlertHandler0E57036C",
+                "Arn"
+              ]
+            },
+            "Id": "Target0"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "ApiPipelineStack/Api/MessagesAlertsApiStack/AlertEventsRule/Resource"
+      }
+    },
+    "AlertEventsRuleAllowEventRuleApiPipelineStackApiMessagesAlertsApiStackPutAlertHandler9F50494ED4745D58": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "PutAlertHandler0E57036C",
+            "Arn"
+          ]
+        },
+        "Principal": "events.amazonaws.com",
+        "SourceArn": {
+          "Fn::GetAtt": [
+            "AlertEventsRule8E357077",
+            "Arn"
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "ApiPipelineStack/Api/MessagesAlertsApiStack/AlertEventsRule/AllowEventRuleApiPipelineStackApiMessagesAlertsApiStackPutAlertHandler9F50494E"
+      }
+    },
+    "messagesbucket65889C6B": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "BucketName": "messages-bucket"
+      },
+      "UpdateReplacePolicy": "Retain",
+      "DeletionPolicy": "Retain",
+      "Metadata": {
+        "aws:cdk:path": "ApiPipelineStack/Api/MessagesAlertsApiStack/messages-bucket/Resource"
+      }
+    },
+    "CDKMetadata": {
+      "Type": "AWS::CDK::Metadata",
+      "Properties": {
+        "Analytics": "v2:deflate64:H4sIAAAAAAAA/02Q0XKDIBBFvyXvuImTTp+rafrWacb2BxC3lqjguJCMw/DvBYwZn+7ZBS53N4f8eIDD7o3fKRNNt3dCTwju23DRsYIITcBWqpadtCIzWWFYhaTtJJCdftWXNaM1kdauZ9HL9XyoGw7uwyphpFbxypYvOA2SKFSeST6Aq3SfHJNedC/FnO4l8oyOGY9xCFKqUIMrrejQlJyQLRgfLORZMys+6KYG98PrxTpByDfKlhu88zn8imSKUT4GWLEQQltl2DuOvZ4HVMl5U8WlJMsF1tlTlO16nvyJ5k83sbWQZ3gLRgTuHLW0FM+eXNnHMoJ675nSDcKV9rf8BfJXyHdXkjKbQkY5IFSL/gPBh5OZzQEAAA=="
+      },
+      "Metadata": {
+        "aws:cdk:path": "ApiPipelineStack/Api/MessagesAlertsApiStack/CDKMetadata/Default"
+      }
+    }
+  },
+  "Outputs": {
+    "apiEndpoint9349E63C": {
+      "Value": {
+        "Fn::Join": [
+          "",
+          [
+            "https://",
+            {
+              "Ref": "apiC8550315"
+            },
+            ".execute-api.us-east-2.",
+            {
+              "Ref": "AWS::URLSuffix"
+            },
+            "/",
+            {
+              "Ref": "apiDeploymentStageprod896C8101"
+            },
+            "/"
+          ]
+        ]
+      }
+    }
+  },
+  "Parameters": {
+    "BootstrapVersion": {
+      "Type": "AWS::SSM::Parameter::Value<String>",
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+    }
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5"
+                  ],
+                  {
+                    "Ref": "BootstrapVersion"
+                  }
+                ]
+              }
+            ]
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+        }
+      ]
+    }
+  }
+}

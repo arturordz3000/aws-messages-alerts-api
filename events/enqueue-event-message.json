@@ -1,0 +1,3 @@
+{
+    "body": "{ \"eventType\": \"message\", \"value\": \"Some message coming from event bridge\" }"
+}
