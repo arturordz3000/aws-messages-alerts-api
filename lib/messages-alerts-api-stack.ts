@@ -38,6 +38,8 @@ export class MessagesAlertsApiStack extends cdk.Stack {
       handler: 'put-alert.handler'
     });
 
+    putAlertLambda.addEnvironment('SLACK_TOKEN', constants.slackToken);
+
     const enqueueEventLambda = new lambda.Function(this, 'EnqueueEventHandler', {
       runtime: lambda.Runtime.NODEJS_14_X,
       code: lambda.Code.fromAsset('lambdas'),
