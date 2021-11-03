@@ -4,7 +4,7 @@
     "version": "2021-10-29T16:10:25Z",
     "title": "messages-alerts-api"
   },
-  "host": "x3pguplgk1.execute-api.us-east-2.amazonaws.com",
+  "host": "yrnlq8eh2e.execute-api.us-east-2.amazonaws.com",
   "basePath": "/prod",
   "schemes": [
     "https"
