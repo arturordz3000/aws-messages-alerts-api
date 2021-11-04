@@ -20,6 +20,8 @@ exports.getGetParameters = function(event) {
     if (params.end) {
         params.end = parseInt(params.end);
     }
+
+    return params;
 }
 
 exports.generateSuccessResponse = function(body) {
