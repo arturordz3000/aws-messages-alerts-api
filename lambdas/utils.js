@@ -7,10 +7,18 @@ exports.getPutPayload = function(event) {
 }
 
 exports.getGetParameters = function(event) {
-    return {
+    const params = {
         id: event?.pathParameters?.id,
         start: event?.queryStringParameters?.start,
         end: event?.queryStringParameters?.end
+    }
+
+    if (params.start) {
+        params.start = parseInt(params.start);
+    }
+
+    if (params.end) {
+        params.end = parseInt(params.end);
     }
 }
 
